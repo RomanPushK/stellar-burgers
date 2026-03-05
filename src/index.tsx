@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as ReactDOMClient from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { default as store } from './services/store';
 import App from './components/app/app';
+import { refreshToken } from '@api';
 
-const container = document.getElementById('root') as HTMLElement;
-const root = ReactDOMClient.createRoot(container!);
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Root element not found');
 
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const root = ReactDOMClient.createRoot(rootElement);
+
+const Root = () => {
+  useEffect(() => {
+    // Проверяем наличие токена при загрузке приложения
+    const token = localStorage.getItem('refreshToken');
+    if (token) {
+      // Здесь можно добавить автоматическую проверку токена
+    }
+  }, []);
+
+  return (
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>
+  );
+};
+
+root.render(<Root />);

@@ -24,9 +24,16 @@
       "@ui-pages": ["src/components/ui/pages"],
       "@utils-types": ["src/utils/types"],
       "@api": ["src/utils/burger-api.ts"],
-      "@slices": ["src/services/slices"],
-      "@selectors": ["src/services/selectors"]
+      "@slices": ["src/services/slices"], "@slices/*": ["src/services/slices/*"],
+      "@selectors": ["src/services/selectors"],
+      "@actions": ["src/services/actions"], "@actions/*": ["src/services/actions/*"]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*",
+    "global.d.ts", // или ваш путь к файлу
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": ["node_modules"]
 }
