@@ -38,7 +38,7 @@ const constructorSlice = createSlice({
 
     moveUp: (state, action: PayloadAction<number>) => {
       const index = action.payload;
-      if (index > 0) {
+      if (index > 0 && index < state.ingredients.length) {
         [state.ingredients[index], state.ingredients[index - 1]] = [
           state.ingredients[index - 1],
           state.ingredients[index]
@@ -48,7 +48,7 @@ const constructorSlice = createSlice({
 
     moveDown: (state, action: PayloadAction<number>) => {
       const index = action.payload;
-      if (index < state.ingredients.length - 1) {
+      if (index >= 0 && index < state.ingredients.length - 1) {
         [state.ingredients[index], state.ingredients[index + 1]] = [
           state.ingredients[index + 1],
           state.ingredients[index]

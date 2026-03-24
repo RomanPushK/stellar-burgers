@@ -10,13 +10,13 @@ export const BurgerConstructorElement: FC<BurgerConstructorElementProps> = memo(
 
     const handleMoveDown = () => {
       if (index < totalItems - 1) {
-        dispatch(moveUp(index));
+        dispatch(moveDown(index));
       }
     };
 
     const handleMoveUp = () => {
       if (index > 0) {
-        dispatch(moveDown(index));
+        dispatch(moveUp(index));
       }
     };
 

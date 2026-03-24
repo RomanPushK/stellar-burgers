@@ -79,8 +79,7 @@ export const DefaultOrderCard: Story = {
         key: 'eitkep27',
         pathname: '/',
         search: '',
-        state: null,
-        unstable_mask: undefined
+        state: null
       }
     }
   }

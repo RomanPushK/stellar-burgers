@@ -45,8 +45,7 @@ export const DefaultIngredient: Story = {
         key: 'eitkep27',
         pathname: '/',
         search: '',
-        state: null,
-        unstable_mask: undefined
+        state: null
       }
     },
     handleAdd: () => {}
