@@ -5,7 +5,8 @@ import constructorReducer, {
   removeIngredient,
   moveUp,
   moveDown,
-  clearConstructor
+  clearConstructor,
+  initialState as _initialState
 } from '../src/services/slices/constructorSlice';
 import { describe, expect, it, beforeEach } from '@jest/globals';
 import { TConstructorIngredient, TIngredient } from '@utils-types';
@@ -85,15 +86,10 @@ const mockIngredients: TConstructorIngredient[] = [
 ];
 
 describe('Тестирование слайса конструктора бургера (constructorSlice)', () => {
-  let initialState: TConstructorState;
+  let initialState: TConstructorState
 
   beforeEach(() => {
-    initialState = {
-      bun: null,
-      ingredients: [],
-      isLoading: false,
-      error: null
-    };
+    initialState = _initialState;
   });
 
   it('Проверка неизвестного экшена', () => {

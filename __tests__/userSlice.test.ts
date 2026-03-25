@@ -18,7 +18,8 @@ import userReducer, {
   updateUser,
   fetchUserOrders,
   forgotPassword,
-  resetPassword
+  resetPassword,
+  initialState
 } from '../src/services/slices/userSlice';
 import { TUserState } from 'src/services/types';
 import { TLoginData, TOrder, TUser } from '@utils-types';
@@ -56,14 +57,6 @@ jest.mock('../src/utils/cookie', () => ({
 let store = configureStore({ reducer: { user: userReducer } });
 
 describe('Тестирование слайса пользователя (userSlice)', () => {
-  const initialState: TUserState = {
-    user: null,
-    isLoading: false,
-    error: null,
-    isAuthChecked: false,
-    orders: []
-  };
-
   afterAll(() => {
     jest.restoreAllMocks();
   });

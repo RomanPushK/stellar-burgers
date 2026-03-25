@@ -1,6 +1,6 @@
 import { describe, expect, jest, afterAll, beforeEach } from '@jest/globals';
 import { fetchIngredients } from '@slices';
-import ingredientsReducer from '../src/services/slices/ingredientsSlice';
+import ingredientsReducer, { initialState } from '../src/services/slices/ingredientsSlice';
 import { TIngredientsState } from 'src/services/types';
 import * as api from '@api';
 import { store } from '../src/services';
@@ -30,12 +30,6 @@ describe('Тестирование слайса ингредиентов (ingred
   beforeEach(() => {
     jest.clearAllMocks();
   });
-
-  const initialState: TIngredientsState = {
-    ingredients: [],
-    isLoading: false,
-    error: null
-  };
 
   it('тест [fetchIngredients.pending]', () => {
     const action = { type: fetchIngredients.pending.type };

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TIngredientsState } from '../types';
 import { getIngredientsApi } from '@api';
 
-const initialState: TIngredientsState = {
+export const initialState: TIngredientsState = {
   ingredients: [],
   isLoading: false,
   error: null

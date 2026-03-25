@@ -1,6 +1,6 @@
 import { describe, expect, jest, afterAll, beforeEach } from '@jest/globals';
 import { fetchFeeds } from '@slices';
-import feedReducer from '../src/services/slices/feedSlice';
+import feedReducer, { initialState } from '../src/services/slices/feedSlice';
 import { TFeedState } from 'src/services/types';
 import * as api from '@api';
 import { store } from '../src/services';
@@ -33,14 +33,6 @@ describe('Тестирование слайса ленты (feedSlice)', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
-
-  const initialState: TFeedState = {
-    orders: [],
-    total: 0,
-    totalToday: 0,
-    isLoading: false,
-    error: null
-  };
 
   it('тест [fetchFeeds.pending]', () => {
     const action = { type: fetchFeeds.pending.type };

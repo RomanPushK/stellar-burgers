@@ -9,9 +9,9 @@ import {
 import orderReducer, {
   createOrder,
   setOrderModalData,
-  clearOrder
+  clearOrder,
+  initialState
 } from '../src/services/slices/orderSlice';
-import { TOrderState } from 'src/services/types';
 import * as api from '@api';
 import { store } from '../src/services';
 import { TOrder } from '@utils-types';
@@ -27,13 +27,6 @@ const mockOrder: TOrder = {
 };
 
 describe('Тестирование слайса заказа (orderSlice)', () => {
-  const initialState: TOrderState = {
-    order: null,
-    isLoading: false,
-    error: null,
-    modalData: null
-  };
-
   afterAll(() => {
     jest.restoreAllMocks();
   });
