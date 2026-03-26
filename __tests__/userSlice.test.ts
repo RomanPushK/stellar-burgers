@@ -4,6 +4,7 @@ import {
   jest,
   afterAll,
   beforeEach,
+  afterEach,
   it
 } from '@jest/globals';
 import * as api from '@api';
@@ -64,6 +65,9 @@ describe('Тестирование слайса пользователя (userSl
   beforeEach(() => {
     jest.clearAllMocks();
     store = configureStore({ reducer: { user: userReducer } });
+  });
+
+  afterEach(() => {
     localStorage.clear();
   });
 

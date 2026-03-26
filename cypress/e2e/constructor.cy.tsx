@@ -5,6 +5,16 @@ const modal = '[data-cy=modal]';
 const modalCloseButton = '[data-cy=modal-close]';
 
 describe('Конструктор бургера', () => {
+  beforeEach(() => {
+    cy.setCookie('accessToken', 'test');
+    window.localStorage.setItem('refreshToken', 'test');
+  });
+
+  afterEach(() => {
+    window.localStorage.clear();
+    cy.clearAllCookies();
+  });
+
   it('загружает ингредиенты', () => {
     cy.intercept('GET', '**/api/ingredients', {
       fixture: 'ingredients.json'
@@ -71,8 +81,6 @@ describe('Конструктор бургера', () => {
       }
     }).as('createOrder');
 
-    cy.setCookie('accessToken', 'test');
-    window.localStorage.setItem('refreshToken', 'test');
     cy.visit(testUrl);
     cy.wait('@getIngredients');
 
