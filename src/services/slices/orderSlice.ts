@@ -11,7 +11,7 @@ export const createOrder = createAsyncThunk(
   }
 );
 
-const initialState: TOrderState = {
+export const initialState: TOrderState = {
   order: null,
   isLoading: false,
   error: null,
